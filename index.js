@@ -56,8 +56,8 @@ function addNameAndTicketNumber(currentLineandTickets, name) {
 }
 
 function callTicketbyName(currentLineandTickets) {
-  if (currentLineandTickets.length > 0) {
-    return `Currently serving ticket number ${currentLineandTickets[0]}.`;
+  if (Object.keys(currentLineandTickets).length > 0) {
+    return `Currently serving ticket number ${Object.keys(currentLineandTickets)[0]}.`;
   } else {
     return "There is nobody waiting to be served!";
   }
