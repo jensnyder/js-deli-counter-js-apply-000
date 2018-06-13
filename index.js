@@ -5,6 +5,25 @@ function takeANumber(katzDeliLine, name) {
   return `Welcome, ${name}. You are number ${katzDeliLine.length} in line.`;
 }
 
+
+var tickets = [];
+var ticketNumber = 0;
+
+function takeATicket(currentTickets) {
+  ticketNumber++;
+  currentTickets.push(ticketNumber);
+  return `You are ticket number ${ticketNumber}.`;
+}
+
+function callATicket(currentTickets) {
+  if (currentTickets.length > 0) {
+    return `Currently serving ticket number ${currentTickets.shift()}.`;
+  } else {
+    return "There is nobody waiting to be served!";
+  }
+}
+
+
 function nowServing(katzDeliLine) {
   if (katzDeliLine.length > 0) {
     return `Currently serving ${katzDeliLine.shift()}.`;
@@ -25,4 +44,21 @@ function currentLine(katzDeliLine) {
     i++;
   }
   return line.slice(0, -2);
+}
+
+
+var namesAndTicketNumbers = {};
+
+function addNameAndTicketNumber(currentLineandTickets, name) {
+  ticketNumber++;
+  currentLineandTickets[name] = ticketNumber;
+  return `Welcome, ${name}. Your ticket number is ${ticketNumber}.`;
+}
+
+function callTicketbyName(currentLineandTickets) {
+  if (currentLineandTickets.length > 0) {
+    return `Currently serving ticket number ${currentLineandTickets[0]}.`;
+  } else {
+    return "There is nobody waiting to be served!";
+  }
 }
